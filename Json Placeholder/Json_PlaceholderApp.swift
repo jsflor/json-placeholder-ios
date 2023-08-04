@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct Json_PlaceholderApp: App {
+    var userController: UserController = UserController()
+    var postController: PostController = PostController()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userController)
+                .environmentObject(postController)
         }
     }
 }

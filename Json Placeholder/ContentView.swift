@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var postController: PostController
+    @EnvironmentObject var userController: UserController
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            Feed().tabItem {
+                Label("Feed", systemImage: "tray.and.arrow.down.fill")
+            }.badge(postController.posts.count)
+            People().tabItem {
+                Label("People", systemImage: "tray.and.arrow.down.fill")
+            }.badge(userController.people.count)
         }
-        .padding()
     }
 }
 
