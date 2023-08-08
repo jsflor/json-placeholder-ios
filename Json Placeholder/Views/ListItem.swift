@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct ListItem: View {
-    var title: String = ""
-    var description: String = ""
+    var content: String = ""
     var body: some View {
-        VStack {
-            Text(title).bold()
-            Text(description)
-        }
+        Text(content)
     }
 }
 
 struct ListItem_Previews: PreviewProvider {
     static var previews: some View {
-        ListItem(title: "Title", description: "description")
+        ListItem(content: "Title")
     }
 }

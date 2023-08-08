@@ -12,17 +12,13 @@ struct Feed: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(postController.posts) {post in
-                    ListItem(title: post.title, description: post.body)
-                }
-            }
+            FeedList(posts: postController.posts)
         }.navigationTitle("Feed")
     }
 }
 
 struct Feed_Previews: PreviewProvider {
     static var previews: some View {
-        Feed()
+        Feed().environmentObject(PostController())
     }
 }

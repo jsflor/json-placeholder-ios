@@ -12,17 +12,13 @@ struct People: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(userController.people) {person in
-                    ListItem(title: person.username, description: "email: \(person.email), phone: \(person.phone), website: \(person.website)")
-                }
-            }
+            PeopleList(people: userController.people)
         }.navigationTitle("People")
     }
 }
 
 struct People_Previews: PreviewProvider {
     static var previews: some View {
-        People()
+        People().environmentObject(UserController())
     }
 }
